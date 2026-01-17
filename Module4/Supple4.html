@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="IMAGES/LOGO.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohio Skool Portal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background-color: #FFEDD5; /* warm sand */
+            color: #292524;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #FFF7ED;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(234,88,12,0.15);
+        }
+
+        .nav-links a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #7C2D12;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #EA580C;
+        }
+
+        .nav-actions button {
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: none;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .signin {
+            background: #FED7AA;
+            color: #7C2D12;
+            margin-right: 10px;
+        }
+
+        .post {
+            background: #EA580C;
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            height: 320px;
+            background:
+                linear-gradient(
+                    rgba(194,65,12,0.75),
+                    rgba(124,45,18,0.75)
+                ),
+                url("https://upload.wikimedia.org/wikipedia/commons/8/8e/Staples_High_School%2C_Westport%2C_CT.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 60px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        
+        .search-box {
+            display: flex;
+            max-width: 700px;
+        }
+
+        .search-box select,
+        .search-box input {
+            padding: 12px;
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .search-box button {
+            padding: 12px 20px;
+            border: none;
+            background: #F97316;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* SECTION */
+        section {
+            padding: 50px 60px;
+        }
+
+        section h2 {
+            margin-bottom: 5px;
+            color: #7C2D12;
+        }
+
+        section p {
+            margin-bottom: 25px;
+            color: #57534E;
+        }
+
+        /* CARDS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #FFF7ED;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(234,88,12,0.2);
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #7C2D12;
+        }
+
+        .card button {
+            margin-top: 10px;
+            padding: 7px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .review {
+            background: #F97316;
+            color: white;
+        }
+
+        .save {
+            background: #FED7AA;
+            margin-left: 5px;
+            color: #7C2D12;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #7C2D12;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-links">
+        <a href="#">Virtual Fairs</a>
+        <a href="#">Career Center</a>
+        <a href="#">Search Jobs</a>
+        <a href="#">Browse Employers</a>
+        <a href="#">Events</a>
+    </div>
+
+    <div class="nav-actions">
+        <button class="signin">Sign in</button>
+        <button class="post">Post Opportunity</button>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>Ohio Skool Career Directory</h1>
+    <p>Building careers, shaping futures</p>
+
+    <div class="search-box">
+        <select>
+            <option>Any Study Field</option>
+            <option>Computer Engineering</option>
+            <option>IT</option>
+            <option>Business</option>
+        </select>
+
+        <input type="text" placeholder="Search internships, jobs, or companies">
+        <button>Search</button>
+    </div>
+</div>
+
+<section>
+    <h2>Top Partners</h2>
+    <p>Explore trusted employers and internship partners</p>
+
+    <div class="card-grid">
+        <div class="card">
+            <img src="IMAGES/TECH.jpg">
+            <div class="card-content">
+                <h3>Tech Solutions Inc.</h3>
+                <button class="review">Add review</button>
+                <button class="save">Save</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="IMAGES/LAB.jpg">
+            <div class="card-content">
+                <h3>Innovate Labs</h3>
+                <button class="review">Add review</button>
+                <button class="save">Save</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="IMAGES/HEALTH.jpg">
+            <div class="card-content">
+                <h3>Metro Health</h3>
+                <button class="review">Add review</button>
+                <button class="save">Save</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="IMAGES/GLOBAl.jpg">
+            <div class="card-content">
+                <h3>Global University</h3>
+                <button class="review">Add review</button>
+                <button class="save">Save</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 School Career Portal
+</footer>
+
+</body>
+</html>
