@@ -1,0 +1,147 @@
+/* Base styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background-color: #fff0f5; /* soft pink */
+    color: #333;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #ffd1dc, #ffe1a8);
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Product grid */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Product card */
+.product {
+    background-color: #fff8e7;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Table styles */
+.product-specs-section {
+    padding: 20px;
+}
+
+.product-specs {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.product-specs th, .product-specs td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.product-specs tr:nth-child(even) {
+    background-color: #ffe;
+}
+
+.product-specs tr:hover {
+    background-color: #ffd1dc;
+}
+
+/* Form styles */
+.contact-form {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form form {
+    background-color: #fff3f0;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+}
+
+.contact-form legend {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.contact-form button {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #ff3b2e;
+}
+
+/* Footer */
+footer {
+    background-color: #ffd1dc;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
