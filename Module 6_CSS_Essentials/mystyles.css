@@ -1,0 +1,209 @@
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background-color: #fff0f5; 
+    color: #333;
+}
+
+
+header {
+    background: linear-gradient(90deg, #ffd1dc, #ffe1a8);
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    
+    opacity: 0;
+    animation: headerFadeIn 2s ease forwards;
+}
+
+@keyframes headerFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.product {
+    background-color: #fff8e7;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+    opacity: 0;
+
+    animation: fadeFloat 10s ease-in-out infinite;
+    transform-origin: center;
+}
+
+
+@keyframes fadeFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatProduct {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+.product-specs-section {
+    padding: 20px;
+}
+
+.product-specs {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.product-specs th, .product-specs td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.product-specs tr:nth-child(even) {
+    background-color: #ffe;
+}
+
+.product-specs tr:hover {
+    background-color: #ffd1dc;
+}
+
+
+.product-specs tr {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInRow 0.8s ease forwards;
+}
+
+.product:nth-child(1) img { animation-delay: 0s; }
+.product:nth-child(2) img { animation-delay: 0.5s; }
+.product:nth-child(3) img { animation-delay: 1s; }
+.product:nth-child(4) img { animation-delay: 1.5s; }
+
+@keyframes slideInRow {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.contact-form {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form form {
+    background-color: #fff3f0;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+}
+
+.contact-form legend {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.contact-form button {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #ff3b2e;
+    transform: scale(1.05);
+}
+
+
+footer {
+    background-color: #ffd1dc;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
