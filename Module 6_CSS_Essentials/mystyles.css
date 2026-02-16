@@ -57,30 +57,31 @@ header p {
 }
 
 
+
 .product img {
     width: 100%;
     border-radius: 10px;
     opacity: 0;
-
-    animation: fadeFloat 10s ease-in-out infinite;
     transform-origin: center;
+
+    animation: fadeInSpin 20s linear infinite;
 }
 
-
-@keyframes fadeFloat {
+/* Combined fade + spin */
+@keyframes fadeInSpin {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: rotate(0deg);
     }
-    10% {
+
+    5% {
         opacity: 1;
-        transform: translateY(0);
+        transform: rotate(18deg);
     }
-    50% {
-        transform: translateY(-12px);
-    }
+
     100% {
-        transform: translateY(0);
+        opacity: 1;
+        transform: rotate(360deg);
     }
 }
 
@@ -133,9 +134,9 @@ header p {
 }
 
 .product:nth-child(1) img { animation-delay: 0s; }
-.product:nth-child(2) img { animation-delay: 0.5s; }
-.product:nth-child(3) img { animation-delay: 1s; }
-.product:nth-child(4) img { animation-delay: 1.5s; }
+.product:nth-child(2) img { animation-delay: 1s; }
+.product:nth-child(3) img { animation-delay: 2s; }
+.product:nth-child(4) img { animation-delay: 3s; }
 
 @keyframes slideInRow {
     to {
