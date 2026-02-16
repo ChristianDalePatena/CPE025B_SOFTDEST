@@ -1,12 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mystyles.css">
-    <title>Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="mystyles.css" />
 </head>
 <body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Go to Home">
+        <span class="brand-mark">=)</span>
+        <span class="brand-text">Christian's Portfolio</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link nav-cta" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Hi, I’m <span class="accent">Christian Pateña</span></h1>
+        <p>
+          I create Computer Engineering related projects. 
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects.html">View Projects</a>
+          <a class="btn btn-ghost" href="contact.html">Contact Me!, :)</a>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-hidden="true">
+        <div class="mini-stat">
+          <span class="mini-title">Web Design and UI</span>
+          <span class="mini-value">Web + UI</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-title">Stylings</span>
+          <span class="mini-value">CSS Styles</span>
+        </div>
+        <div class="mini-stat">
+          <span class="mini-title">Optimization</span>
+          <span class="mini-value">Responsive Design</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-head">
+      <h2>Featured Projects</h2>
+      <p><strong> Click whatever you want to see! </strong> </p>
+    </section>
+
+    <section class="projects-grid">
+
+  <a class="project-card" href="project1.html">
+    <div class="project-top">
+      <span class="tag">Web</span>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <!-- IMAGE -->
+    <img src="images/Project1.png" alt="Project 1 Preview" class="project-image">
+
+    <h3>Project Section 1</h3>
+    <p>My Computer Engineering related projects from 1st year.</p>
+    <div class="project-meta">
+      <span>HTML</span><span>CSS</span><span>Responsive</span>
+    </div>
+  </a>
+
+
+  <a class="project-card" href="project2.html">
+    <div class="project-top">
+      <span class="tag">UI/UX</span>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </div>
+
     
+    <img src="images/Project2.png" alt="Project 2 Preview" class="project-image">
+
+    <h3>Project Section 2</h3>
+    <p>My Computer Engineering related projects from 2nd year.</p>
+    <div class="project-meta">
+      <span>Flexbox</span><span>Grid</span><span>Layout</span>
+    </div>
+  </a>
+
+
+  <a class="project-card" href="project3.html">
+    <div class="project-top">
+      <span class="tag">System</span>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </div>
+
+    <!-- IMAGE -->
+    <img src="images/Project3.png" alt="Project 3 Preview" class="project-image">
+
+    <h3>Project Section 3</h3>
+    <p>My Computer Engineering related projects from 3rd year.</p>
+    <div class="project-meta">
+      <span>Design</span><span>Clean UI</span><span>Cards</span>
+    </div>
+  </a>
+
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>@ 2026 Christian's Portfolio</p>
+      <div class="footer-links">
+        <a href="contact.html">Contact</a>
+        <a href="projects.html">All Projects</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
