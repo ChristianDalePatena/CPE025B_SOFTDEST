@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechShop - Gaming & Gadgets</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Optional: Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root{
+      --bg-dark: #0b0f1a;
+      --bg-dark-2: #11172a;
+      --card: #0f172a;
+      --line: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.65);
+      --accent: #2f7dff;   
+      --accent-2: #00d1ff; 
+      --danger: #ff3b30;
+    }
+
+    body{
+      background: radial-gradient(900px 500px at 20% 0%, rgba(47,125,255,.18), transparent 55%),
+                  radial-gradient(900px 500px at 100% 10%, rgba(0,209,255,.12), transparent 55%),
+                  var(--bg-dark);
+      color: var(--text);
+    }
+
+   
+    .navbar{
+      background: rgba(11,15,26,.92)!important;
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .navbar .nav-link, .navbar .navbar-brand{ color: var(--text)!important; }
+    .navbar .nav-link{ opacity: .85; }
+    .navbar .nav-link:hover{ opacity: 1; color: #fff!important; }
+    .brand-badge{
+      font-size: .72rem;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      padding: .2rem .5rem;
+      border-radius: 999px;
+      color: #fff;
+      margin-left: .5rem;
+      font-weight: 700;
+    }
+
+    
+    .searchbar .form-control{
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+    .searchbar .form-control::placeholder{ color: rgba(255,255,255,.5); }
+    .searchbar .btn{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border: 0;
+      font-weight: 700;
+    }
+
+   
+    .hero{
+      background: linear-gradient(135deg, rgba(17,23,42,.9), rgba(15,23,42,.55));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(47,125,255,.25), transparent 45%),
+                  radial-gradient(circle at 70% 30%, rgba(0,209,255,.18), transparent 45%);
+      filter: blur(20px);
+    }
+    .hero > *{ position: relative; }
+    .hero h1{ letter-spacing: .2px; }
+    .hero .lead{ color: var(--muted); }
+    .btn-accent{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border: 0;
+      font-weight: 800;
+    }
+    .btn-ghost{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--text);
+      font-weight: 700;
+    }
+    .btn-ghost:hover{ border-color: rgba(255,255,255,.35); }
+
+   
+    .section-title{
+      color: #fff;
+      font-weight: 900;
+    }
+    .section-sub{
+      color: var(--muted);
+      margin-top: -6px;
+    }
+
+    
+    .pill{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      display: inline-flex;
+      gap: .4rem;
+      align-items: center;
+    }
+    .pill:hover{
+      border-color: rgba(47,125,255,.4);
+      background: rgba(47,125,255,.10);
+    }
+
+    
+    .product-card{
+      background: linear-gradient(180deg, rgba(15,23,42,.92), rgba(11,15,26,.92));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 35px rgba(0,0,0,.25);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      height: 100%;
+    }
+    .product-card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(47,125,255,.35);
+      box-shadow: 0 22px 55px rgba(0,0,0,.35);
+    }
+    .product-img{
+      height: 180px;
+      object-fit: cover;
+      width: 100%;
+      background: #0b1220;
+    }
+    .price{
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+    .old-price{
+      color: rgba(255,255,255,.55);
+      text-decoration: line-through;
+      margin-left: .5rem;
+      font-weight: 600;
+      font-size: .95rem;
+    }
+    .stock{
+      font-size: .85rem;
+      color: rgba(255,255,255,.7);
+    }
+    .deal-badge{
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--danger);
+      color: #fff;
+      border-radius: 999px;
+      padding: .25rem .6rem;
+      font-weight: 900;
+      font-size: .8rem;
+      box-shadow: 0 10px 18px rgba(0,0,0,.25);
+    }
+    .card-body p{ color: var(--muted); }
+
+   
+    .panel{
+      background: rgba(17,23,42,.75);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    }
+    .form-control, .form-select{
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+    .form-control::placeholder{ color: rgba(255,255,255,.5); }
+    .form-control:focus{
+      border-color: rgba(47,125,255,.5);
+      box-shadow: 0 0 0 .2rem rgba(47,125,255,.18);
+    }
+
+   
+    footer{
+      border-top: 1px solid var(--line);
+      color: rgba(255,255,255,.7);
+    }
+  </style>
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        Christian's TechShop <span class="brand-badge">GAMING • GEAR</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse gap-3" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-sm btn-accent" href="#"><i class="bi bi-cart3 me-1"></i> Cart</a>
+          </li>
+        </ul>
+
+        
+        <form class="searchbar d-flex ms-lg-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search games, consoles, accessories..." aria-label="Search">
+          <button class="btn text-white" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  
+  <section id="home" class="container my-4">
+    <div class="hero p-4 p-md-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-black mb-2">Level up your setup.</h1>
+          <p class="lead mb-4">Your trusted outlet for Consoles, PC components, and accessories.</p>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="#products" class="btn btn-accent btn-lg">Shop Deals</a>
+            <a href="#categories" class="btn btn-ghost btn-lg">Browse Categories</a>
+          </div>
+
+          <div class="d-flex gap-3 flex-wrap mt-4">
+            <span class="pill"><i class="bi bi-shield-check"></i> Legit Items</span>
+            <span class="pill"><i class="bi bi-truck"></i> Fast Shipping</span>
+            <span class="pill"><i class="bi bi-headset"></i> Support</span>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="panel p-4">
+            <h5 class="fw-bold mb-3">Today’s Hot Picks</h5>
+            <div class="d-flex flex-column gap-3">
+              <div class="d-flex justify-content-between">
+                <span class="stock">PS5 Controller</span>
+                <span class="price">₱3,490</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="stock">Gaming Headset</span>
+                <span class="price">₱1,990</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="stock">Mechanical Keyboard</span>
+                <span class="price">₱2,799</span>
+              </div>
+              <a href="#products" class="btn btn-accent w-100">See All Deals</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="categories" class="container my-5">
+    <h2 class="section-title text-center mb-1">Shop by Category</h2>
+    <p class="section-sub text-center">Shop by your Taste!</p>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+      <a class="pill" href="#"><i class="bi bi-controller"></i> Consoles</a>
+      <a class="pill" href="#"><i class="bi bi-disc"></i> Games</a>
+      <a class="pill" href="#"><i class="bi bi-headphones"></i> Audio</a>
+      <a class="pill" href="#"><i class="bi bi-keyboard"></i> PC Gear</a>
+      <a class="pill" href="#"><i class="bi bi-mouse2"></i> Accessories</a>
+    </div>
+  </section>
+
+  
+  <section id="products" class="container my-5">
+    <h2 class="section-title text-center mb-1">Featured Deals</h2>
+    <p class="section-sub text-center">Hot Deals are Available!</p>
+
+    <div class="row g-4 mt-2">
+     
+      <div class="col-md-6 col-lg-3">
+        <div class="product-card position-relative">
+          <span class="deal-badge">SALE</span>
+          <img src="https://static.wikia.nocookie.net/playstation/images/3/3b/Ps5-models.jpg/revision/latest?cb=20200612003033" class="product-img" alt="Console">
+          <div class="card-body p-3">
+            <h5 class="card-title fw-bold mb-1">Next-Gen Console</h5>
+            <p class="mb-2">Play your favorite console games!</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="price">₱27,990</span>
+                <span class="old-price">₱29,990</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-accent"><i class="bi bi-cart-plus me-1"></i>Add</a>
+            </div>
+            <div class="stock mt-2"><i class="bi bi-check-circle"></i> In stock</div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="product-card position-relative">
+          <span class="deal-badge">-20%</span>
+          <img src="https://gameone.ph/media/catalog/product/mpiowebpcache/6b7f71e8a69cca11592e8fb63d21ba86/h/y/hyperx-cloud-mini-wired-gaming-headset-cover-final.jpg" class="product-img" alt="Headset">
+          <div class="card-body p-3">
+            <h5 class="card-title fw-bold mb-1">Gaming Headsets</h5>
+            <p class="mb-2">Satisfy your hearing while gaming.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="price">₱1,990</span>
+                <span class="old-price">₱2,490</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-accent"><i class="bi bi-cart-plus me-1"></i>Add</a>
+            </div>
+            <div class="stock mt-2"><i class="bi bi-check-circle"></i> In stock</div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="product-card position-relative">
+          <span class="deal-badge">HOT</span>
+          <img src="https://ecommerce.datablitz.com.ph/cdn/shop/products/81yOuAUQAiL._AC_SL1500_ab873dda-5154-496c-b7ae-d862dc38f4bc_800x.jpg?v=1739863679" class="product-img" alt="Keyboard">
+          <div class="card-body p-3">
+            <h5 class="card-title fw-bold mb-1">Mechanical Keyboard</h5>
+            <p class="mb-2">Move like a pro!</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="price">₱2,799</span>
+                <span class="old-price">₱3,199</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-accent"><i class="bi bi-cart-plus me-1"></i>Add</a>
+            </div>
+            <div class="stock mt-2"><i class="bi bi-check-circle"></i> In stock</div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="product-card position-relative">
+          <span class="deal-badge">BUNDLE</span>
+          <img src="https://www.customcontrollers.com/cdn/shop/products/FIFA-23-DualSense_1_002.jpg?v=1681306982&width=2048" class="product-img" alt="Controller">
+          <div class="card-body p-3">
+            <h5 class="card-title fw-bold mb-1">Controller Bundle</h5>
+            <p class="mb-2">Save some cash with good bundle deals.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="price">₱3,490</span>
+                <span class="old-price">₱3,990</span>
+              </div>
+              <a href="#" class="btn btn-sm btn-accent"><i class="bi bi-cart-plus me-1"></i>Add</a>
+            </div>
+            <div class="stock mt-2"><i class="bi bi-check-circle"></i> In stock</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contact" class="container my-5">
+    <div class="panel p-4 p-md-5">
+      <h2 class="section-title text-center mb-1">Contact Us</h2>
+      <p class="section-sub text-center mb-4">Any Inquiries? Message us.</p>
+
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" placeholder="Your Name">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="Your Email">
+        </div>
+        <div class="col-12">
+          <label class="form-label">Concern</label>
+          <select class="form-select">
+            <option selected>Select</option>
+            <option>Product Inquiry</option>
+            <option>Order Status</option>
+            <option>Warranty / Returns</option>
+            <option>Partnership</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Message</label>
+          <textarea class="form-control" rows="4" placeholder="Type your message..."></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button class="btn btn-accent btn-lg px-5" type="submit">
+            <i class="bi bi-send me-1"></i> Send
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+ 
+  <footer class="text-center py-4">
+    <div class="container">
+      <div class="d-flex justify-content-center gap-3 flex-wrap mb-2">
+        <a class="pill" href="#"><i class="bi bi-facebook"></i> Facebook</a>
+        <a class="pill" href="#"><i class="bi bi-instagram"></i> Instagram</a>
+        <a class="pill" href="#"><i class="bi bi-tiktok"></i> TikTok</a>
+      </div>
+      <p class="mb-0">@ 2026 Christian's TechShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

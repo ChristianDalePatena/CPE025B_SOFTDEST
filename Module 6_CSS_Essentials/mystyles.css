@@ -67,7 +67,7 @@ header p {
     animation: fadeInSpin 20s linear infinite;
 }
 
-/* Combined fade + spin */
+
 @keyframes fadeInSpin {
     0% {
         opacity: 0;
