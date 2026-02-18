@@ -1,0 +1,433 @@
+@use "sass:color";
+
+/* ========== Variables ========== */
+$brand: #2563eb;
+$dark: #0f172a;
+$text: #334155;
+$bg: #ffffff;
+$muted: #f1f5f9;
+$border: #e2e8f0;
+
+$radius: 14px;
+$shadow: 0 10px 30px rgba(2, 6, 23, 0.10);
+
+$container: 1100px;
+
+/* ========== Mixins ========== */
+@mixin container {
+  width: min(100% - 32px, $container);
+  margin-inline: auto;
+}
+
+@mixin card {
+  background: $bg;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.06s ease, background 0.2s ease, border-color 0.2s ease;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@mixin grid($min: 240px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: 16px;
+}
+
+/* ========== Base ========== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: $text;
+  background: $bg;
+  line-height: 1.5;
+}
+
+.container { @include container; }
+
+a { color: inherit; }
+
+.section {
+  padding: 56px 0;
+
+  &--alt {
+    background: $muted;
+  }
+}
+
+.section-head {
+  margin-bottom: 22px;
+
+  h2 {
+    margin: 0 0 6px;
+    color: $dark;
+    font-size: clamp(22px, 2.4vw, 30px);
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0;
+    color: color.adjust($text, $lightness: 10%);
+  }
+}
+
+/* ========== Header ========== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border;
+
+  .header-inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    gap: 16px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+
+    &__logo { font-size: 22px; }
+
+    &__text {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: $dark;
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    a {
+      text-decoration: none;
+      padding: 8px 10px;
+      border-radius: 10px;
+
+      &:hover {
+        background: $muted;
+      }
+    }
+  }
+}
+
+/* ========== Buttons ========== */
+.btn {
+  @include btn-base;
+  background: $brand;
+  color: white;
+
+  &:hover {
+    background: color.adjust($brand, $lightness: -6%);
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $dark;
+    border-color: $border;
+
+    &:hover { background: $muted; }
+  }
+
+  &--small {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+}
+
+/* ========== Hero ========== */
+.hero {
+  padding: 48px 0 30px;
+  background: radial-gradient(
+    900px 400px at 20% 10%,
+    color.adjust($brand, $lightness: 42%),
+    transparent 60%
+  );
+
+  .hero-inner {
+    @include container;
+    display: grid;
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  h1 {
+    margin: 0 0 10px;
+    color: $dark;
+    font-size: clamp(26px, 3.2vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    margin: 0 0 18px;
+    max-width: 56ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .trust {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    &__item {
+      @include card;
+      box-shadow: none;
+      padding: 10px 12px;
+      min-width: 160px;
+
+      strong { color: $dark; }
+      span { display: block; font-size: 14px; color: color.adjust($text, $lightness: 10%); }
+    }
+  }
+
+  .hero-card {
+    @include card;
+    padding: 18px;
+
+    h3 {
+      margin: 0 0 10px;
+      color: $dark;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+
+      li { margin: 8px 0; }
+    }
+
+    &__note {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid $border;
+      color: color.adjust($text, $lightness: 10%);
+      font-size: 14px;
+
+      span { color: $dark; font-weight: 700; }
+    }
+  }
+
+  @media (max-width: 860px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* ========== Cards / Grids ========== */
+.grid { @include grid(240px); }
+
+.cards {
+  .card {
+    @include card;
+    padding: 16px;
+    position: relative;
+
+    h3 {
+      margin: 0 0 6px;
+      color: $dark;
+    }
+
+    p { margin: 0; }
+
+    .pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: color.adjust($brand, $lightness: 42%);
+      color: $dark;
+      border: 1px solid color.adjust($brand, $lightness: 35%);
+      font-weight: 700;
+    }
+  }
+}
+
+/* ========== Pricing ========== */
+.pricing {
+  .price-card {
+    @include card;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h3 { margin: 0; color: $dark; }
+
+    .price {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: $dark;
+
+      span { font-size: 18px; margin-right: 2px; }
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+
+      li { margin: 8px 0; }
+    }
+
+    &--featured {
+      border-color: color.adjust($brand, $lightness: 20%);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);
+      transform: translateY(-4px);
+      position: relative;
+
+      .badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: $brand;
+        color: white;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+/* ========== Reviews ========== */
+.reviews {
+  .review {
+    @include card;
+    padding: 16px;
+
+    p { margin: 0 0 10px; }
+    strong { color: $dark; }
+  }
+}
+
+/* ========== Contact ========== */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    h2 { margin: 0 0 10px; color: $dark; }
+    p { margin: 0 0 12px; }
+
+    .contact-list {
+      margin: 0;
+      padding-left: 18px;
+
+      li { margin: 8px 0; }
+    }
+  }
+
+  .contact-form {
+    @include card;
+    padding: 16px;
+
+    .field {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 12px;
+
+      label {
+        font-weight: 700;
+        color: $dark;
+        font-size: 14px;
+      }
+
+      input, textarea {
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid $border;
+        outline: none;
+        font: inherit;
+
+        &:focus {
+          border-color: color.adjust($brand, $lightness: 15%);
+          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+        }
+      }
+    }
+
+    .small-note {
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: color.adjust($text, $lightness: 15%);
+    }
+  }
+}
+
+/* ========== Footer ========== */
+.site-footer {
+  border-top: 1px solid $border;
+  padding: 18px 0;
+
+  .footer-inner {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  p { margin: 0; font-size: 14px; }
+
+  .footer-links {
+    display: flex;
+    gap: 10px;
+
+    a {
+      font-size: 14px;
+      text-decoration: none;
+      padding: 6px 8px;
+      border-radius: 10px;
+
+      &:hover { background: $muted; }
+    }
+  }
+}
