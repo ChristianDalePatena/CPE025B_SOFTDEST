@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FreshMart Grocery</title>
+  <meta name="description" content="FreshMart Grocery — fresh produce, pantry essentials, and weekly deals." />
+  <link rel="stylesheet" href="mystyles.css" />
+</head>
+
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="FreshMart home">
+        <span aria-hidden="true" class="brand__logo"></span>
+        <span class="brand__name">FreshMart</span>
+        <span class="sr-only">Grocery Store</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#deals">Deals</a>
+        <a href="#categories">Categories</a>
+        <a href="#hours">Hours</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" role="main" tabindex="-1">
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1 id="hero-title">Fresh groceries, simple shopping.</h1>
+          <p>
+            Find produce, pantry staples, and daily essentials in one place.
+            Designed with accessibility in mind for all customers.
+          </p>
+
+          <div class="hero-actions" role="group" aria-label="Primary actions">
+            <a class="btn" href="#deals">Browse weekly deals</a>
+            <a class="btn btn--ghost" href="#categories">Shop by category</a>
+          </div>
+
+          <ul class="highlights" aria-label="Store highlights">
+           
+          </ul>
+        </div>
+
+        <aside class="info-card" aria-label="Quick store info">
+          <h2 class="info-card__title">Today’s Information</h2>
+          <dl class="info-card__list">
+            <div>
+              <dt>Pickup</dt>
+              <dd>Available 10AM–6PM</dd>
+            </div>
+            <div>
+              <dt>Delivery</dt>
+              <dd>Within 5km area</dd>
+            </div>
+            <div>
+              <dt>Support</dt>
+              <dd>Call or email us</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="deals" class="section" aria-labelledby="deals-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="deals-title">Weekly deals</h2>
+          <p>Fire deals!</p>
+        </header>
+
+        <div class="grid" role="list">
+          <article class="card" role="listitem" aria-label="Bananas deal">
+            <h3>Bananas</h3>
+            <p class="meta">₱59 / kg</p>
+            <p>Fresh and sweet, perfect for snacks and smoothies.</p>
+            <a class="link" href="#contact">Ask about availability</a>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Eggs deal">
+            <h3>Eggs (12 pcs)</h3>
+            <p class="meta">₱99</p>
+            <p>Great for breakfast and baking essentials.</p>
+            <a class="link" href="#contact">Reserve for pickup</a>
+          </article>
+
+          <article class="card" role="listitem" aria-label="Rice deal">
+            <h3>Premium Rice (5kg)</h3>
+            <p class="meta">₱279</p>
+            <p>Quality grains for daily meals.</p>
+            <a class="link" href="#contact">Check stock</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section section--alt" aria-labelledby="cat-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="cat-title">Shop by category</h2>
+          <p>Choose your desired items.</p>
+        </header>
+
+        <div class="grid grid--wide" role="list">
+          <a class="tile" role="listitem" href="#contact" aria-label="Shop Produce">
+            <span class="tile__icon" aria-hidden="true">🥦</span>
+            <span class="tile__title">Produce</span>
+            <span class="tile__desc">Vegetables and fruits</span>
+          </a>
+
+          <a class="tile" role="listitem" href="#contact" aria-label="Shop Pantry">
+            <span class="tile__icon" aria-hidden="true">🥫</span>
+            <span class="tile__title">Pantry</span>
+            <span class="tile__desc">Canned goods and staples</span>
+          </a>
+
+          <a class="tile" role="listitem" href="#contact" aria-label="Shop Dairy">
+            <span class="tile__icon" aria-hidden="true">🥛</span>
+            <span class="tile__title">Dairy</span>
+            <span class="tile__desc">Milk, cheese, yogurt</span>
+          </a>
+
+          <a class="tile" role="listitem" href="#contact" aria-label="Shop Household">
+            <span class="tile__icon" aria-hidden="true">🧻</span>
+            <span class="tile__title">Household</span>
+            <span class="tile__desc">Cleaners and supplies</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="hours" class="section" aria-labelledby="hours-title">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="hours-title">Store hours</h2>
+          <p>Store Schedule.</p>
+        </header>
+
+        <div class="table-wrap" role="region" aria-label="Store hours table" tabindex="0">
+          <table class="hours-table">
+            <caption class="sr-only">FreshMart store hours by day</caption>
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Open</th>
+                <th scope="col">Close</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Monday</th><td>9:00 AM</td><td>7:00 PM</td></tr>
+              <tr><th scope="row">Tuesday</th><td>9:00 AM</td><td>7:00 PM</td></tr>
+              <tr><th scope="row">Wednesday</th><td>9:00 AM</td><td>7:00 PM</td></tr>
+              <tr><th scope="row">Thursday</th><td>9:00 AM</td><td>7:00 PM</td></tr>
+              <tr><th scope="row">Friday</th><td>9:00 AM</td><td>7:00 PM</td></tr>
+              <tr><th scope="row">Saturday</th><td>9:00 AM</td><td>6:00 PM</td></tr>
+              <tr><th scope="row">Sunday</th><td>10:00 AM</td><td>5:00 PM</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--alt" aria-labelledby="contact-title">
+      <div class="container contact">
+        <header class="section-head">
+          <h2 id="contact-title">Contact us</h2>
+          <p>For any inquiries please contact us!</p>
+        </header>
+
+        <form class="form" aria-describedby="form-help">
+          <p id="form-help" class="help-text">
+            Fields marked with <span aria-hidden="true">*</span><span class="sr-only">asterisk</span> are required.
+          </p>
+
+          <div class="field">
+            <label for="name">Name <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your concerns here..."></textarea>
+          </div>
+
+          <button class="btn" type="button">Send message</button>
+          <p class="fine-print">Hello There!</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>@ 2026 FreshMart Grocery by Christian</p>
+      <a class="link" href="#home">Back to top</a>
+    </div>
+  </footer>
+</body>
+</html>

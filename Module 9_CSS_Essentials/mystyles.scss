@@ -1,0 +1,370 @@
+@use "sass:color";
+
+
+$bg: #ffffff;
+$surface: #f1f5f9;
+$text: #0f172a;
+$muted: #334155;
+
+$primary: #0f766e;  
+$primary-hover: color.adjust($primary, $lightness: -6%);
+$border: #d7dee8;
+
+$focus: #f59e0b;   
+$radius: 14px;
+$shadow: 0 12px 30px rgba(2, 6, 23, 0.12);
+
+$container: 1100px;
+
+
+@mixin container {
+  width: min(100% - 32px, $container);
+  margin-inline: auto;
+}
+
+@mixin focus-ring {
+  outline: 3px solid $focus;
+  outline-offset: 3px;
+}
+
+@mixin card {
+  background: $bg;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.06s ease, border-color 0.2s ease;
+
+  &:active { transform: translateY(1px); }
+}
+
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 10px 12px;
+  background: $text;
+  color: $bg;
+  border-radius: 10px;
+  transform: translateY(-200%);
+  z-index: 1000;
+  text-decoration: none;
+
+  &:focus { transform: translateY(0); @include focus-ring; }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: $bg;
+  color: $text;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+
+a {
+  color: $primary;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover { color: $primary-hover; }
+  &:focus-visible { @include focus-ring; }
+}
+
+.container { @include container; }
+
+
+.section {
+  padding: 56px 0;
+
+  &--alt { background: $surface; }
+}
+
+.section-head {
+  margin-bottom: 18px;
+
+  h2 {
+    margin: 0 0 6px;
+    font-size: clamp(22px, 2.4vw, 30px);
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0;
+    color: $muted;
+    max-width: 70ch;
+  }
+}
+
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border;
+
+  .header-inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 0;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: $text;
+    text-decoration: none; 
+    font-weight: 900;
+
+    &:focus-visible { @include focus-ring; border-radius: 12px; }
+
+    &__logo { font-size: 22px; }
+    &__name { letter-spacing: -0.02em; }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    a {
+      padding: 8px 10px;
+      border-radius: 10px;
+
+      &:hover { background: $surface; }
+    }
+  }
+}
+
+
+.btn {
+  @include button-base;
+  background: $primary;
+  color: $bg;
+  text-decoration: none; 
+
+  &:hover { background: $primary-hover; }
+  &:focus-visible { @include focus-ring; }
+
+  &--ghost {
+    background: transparent;
+    color: $text;
+    border-color: $border;
+
+    &:hover { background: $surface; }
+  }
+}
+
+
+.hero {
+  padding: 46px 0 26px;
+  background: radial-gradient(
+    900px 420px at 20% 10%,
+    color.adjust($primary, $lightness: 45%),
+    transparent 60%
+  );
+
+  .hero-inner {
+    @include container;
+    display: grid;
+    grid-template-columns: 1.35fr 0.9fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  h1 {
+    margin: 0 0 10px;
+    font-size: clamp(26px, 3.2vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  p { margin: 0 0 16px; max-width: 65ch; }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .highlights {
+    margin: 0;
+    padding-left: 18px;
+    color: $muted;
+
+    li { margin: 8px 0; }
+    strong { color: $text; }
+  }
+
+  .info-card {
+    @include card;
+    padding: 16px;
+
+    &__title { margin: 0 0 10px; font-size: 18px; }
+
+    &__list {
+      margin: 0;
+      display: grid;
+      gap: 10px;
+
+      dt { font-weight: 800; }
+      dd { margin: 0; color: $muted; }
+    }
+  }
+
+  @media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; }
+  }
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+
+  &--wide { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+
+.card {
+  @include card;
+  padding: 16px;
+
+  h3 { margin: 0 0 6px; }
+  .meta { margin: 0 0 8px; color: $muted; font-weight: 700; }
+  p { margin: 0 0 10px; color: $muted; }
+}
+
+
+.link {
+  font-weight: 700;
+}
+
+
+.tile {
+  @include card;
+  padding: 16px;
+  display: grid;
+  gap: 6px;
+  color: $text;
+
+  &:hover { border-color: color.adjust($primary, $lightness: 20%); }
+
+  &__icon { font-size: 26px; }
+  &__title { font-weight: 900; }
+  &__desc { color: $muted; }
+}
+
+
+.table-wrap {
+  @include card;
+  padding: 12px;
+  overflow: auto;
+
+  &:focus-visible { @include focus-ring; }
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid $border;
+    text-align: left;
+  }
+
+  thead th { background: $surface; }
+  tbody th { font-weight: 800; }
+}
+
+
+.contact {
+  display: grid;
+  gap: 16px;
+}
+
+.form {
+  @include card;
+  padding: 16px;
+  max-width: 720px;
+
+  .help-text { margin: 0 0 12px; color: $muted; }
+
+  .field {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 12px;
+
+    label { font-weight: 800; }
+
+    input, textarea {
+      font: inherit;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid $border;
+      background: $bg;
+
+      &:focus-visible { @include focus-ring; }
+    }
+  }
+
+  .fine-print { margin: 10px 0 0; font-size: 12px; color: $muted; }
+}
+
+/* ====== Footer ====== */
+.site-footer {
+  border-top: 1px solid $border;
+  padding: 18px 0;
+
+  .footer-inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  p { margin: 0; color: $muted; }
+}
