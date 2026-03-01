@@ -59,7 +59,7 @@ while (true) {
                     `${i}: ${contacts[i].name} / ${contacts[i].phone} / ${contacts[i].email}`
                 );
             }
-            alert("All contacts displayed in console.");
+            alert("All contacts displayed.");
         }
 
     }
@@ -83,9 +83,9 @@ while (true) {
                 phone: phone.trim(),
                 email: email.trim()
             });
-            alert("Contact added successfully.");
+            alert("Contact added.");
         } else {
-            alert("All fields are required. Contact not added.");
+            alert("All fields are required.");
         }
     }
 
@@ -120,6 +120,6 @@ while (true) {
 
     
     else {
-        alert("Invalid option. Please try again.");
+        alert("Invalid option.");
     }
 }
