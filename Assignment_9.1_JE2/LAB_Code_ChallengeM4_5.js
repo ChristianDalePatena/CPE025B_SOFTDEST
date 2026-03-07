@@ -1,4 +1,3 @@
-// Simple lookup of city → coordinates
 const cityCoords = {
     "Berlin": { lat: 52.52, lon: 13.41 },
     "Oslo": { lat: 59.91, lon: 10.75 },
